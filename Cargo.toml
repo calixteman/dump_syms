@@ -32,7 +32,7 @@ symbolic-debuginfo = "7.5"
 symbolic-demangle = "7.5"
 symbolic-minidump = "7.5"
 tokio = "0.2"
-url = "2.1"
+url = "2.2"
 uuid = "0.8"
 
 [dev-dependencies]
