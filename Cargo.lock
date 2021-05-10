@@ -433,7 +433,7 @@ dependencies = [
  "log",
  "num_cpus",
  "openssl",
- "pdb",
+ "pdb 0.6.0",
  "regex",
  "reqwest",
  "serde",
@@ -445,6 +445,16 @@ dependencies = [
  "tokio",
  "url",
  "uuid",
+]
+
+[[package]]
+name = "elementtree"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "19c5d32d0ab83734d2d7452047ef901c105991044b7b07da30fe82371a149a25"
+dependencies = [
+ "string_cache",
+ "xml-rs",
 ]
 
 [[package]]
@@ -1035,6 +1045,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "new_debug_unreachable"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e4a24736216ec316047a1fc4252e27dabb04218aa4a3f37c6e7ddbf1f9782b54"
+
+[[package]]
 name = "ntapi"
 version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1176,6 +1192,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "pdb"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "13f4d162ecaaa1467de5afbe62d597757b674b51da8bb4e587430c5fdb2af7aa"
+dependencies = [
+ "fallible-iterator",
+ "scroll",
+ "uuid",
+]
+
+[[package]]
 name = "percent-encoding"
 version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1222,6 +1249,15 @@ dependencies = [
  "maplit",
  "pest",
  "sha-1",
+]
+
+[[package]]
+name = "phf_shared"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c00cf8b9eafe68dde5e9eaa2cef8ee84a9336a47d566ec55ca16589633b65af7"
+dependencies = [
+ "siphasher",
 ]
 
 [[package]]
@@ -1299,6 +1335,12 @@ name = "ppv-lite86"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ac74c624d6b2d21f425f752262f42188365d7b8ff1aff74c82e45136510a4857"
+
+[[package]]
+name = "precomputed-hash"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "925383efa346730478fb4838dbe9137d2a47675ad789c546d150a6e1dd4ab31c"
 
 [[package]]
 name = "proc-macro-hack"
@@ -1620,6 +1662,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "siphasher"
+version = "0.3.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cbce6d4507c7e4a3962091436e56e95290cb71fa302d0d270e32130b75fbff27"
+
+[[package]]
 name = "slab"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1649,6 +1697,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
 
 [[package]]
+name = "string_cache"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8ddb1139b5353f96e429e1a5e19fbaf663bddedaa06d1dbd49f82e352601209a"
+dependencies = [
+ "lazy_static",
+ "new_debug_unreachable",
+ "phf_shared",
+ "precomputed-hash",
+ "serde",
+]
+
+[[package]]
 name = "strsim"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1656,9 +1717,9 @@ checksum = "8ea5119cdb4c55b55d432abb513a0429384878c15dde60cc77b1c99de1a95a6a"
 
 [[package]]
 name = "symbolic"
-version = "8.0.3"
+version = "8.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "85aebf804f94f296b3324ccd89c96d68ba8d51451138cf12a47efd3c222470fb"
+checksum = "c4b052742c32348e5217c9bf28ba2a1a9d4169609ef1055eaea5333ccf7a7614"
 dependencies = [
  "symbolic-common",
  "symbolic-debuginfo",
@@ -1668,9 +1729,9 @@ dependencies = [
 
 [[package]]
 name = "symbolic-common"
-version = "8.0.3"
+version = "8.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "51f0207497ae35f612cda9567980b25460286fb942575f0af3cbcef69f519c64"
+checksum = "be7dfa630954f18297ceae1ff2890cb7f5008a0b2d2106b0468dafc45b0b6b12"
 dependencies = [
  "debugid",
  "memmap",
@@ -1680,11 +1741,12 @@ dependencies = [
 
 [[package]]
 name = "symbolic-debuginfo"
-version = "8.0.3"
+version = "8.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6012a2fc6ed150ce4805ec9e23731482aa56232eef082cdb4a94b23962c43484"
+checksum = "6fec6e5e3c9575f509bafa63e82e98f178d50f886a23c385f27fdcbbc5f29bbf"
 dependencies = [
  "dmsort",
+ "elementtree",
  "fallible-iterator",
  "flate2",
  "gimli",
@@ -1692,7 +1754,7 @@ dependencies = [
  "lazy_static",
  "lazycell",
  "parking_lot",
- "pdb",
+ "pdb 0.7.0",
  "pest",
  "pest_derive",
  "regex",
@@ -1708,9 +1770,9 @@ dependencies = [
 
 [[package]]
 name = "symbolic-demangle"
-version = "8.0.3"
+version = "8.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c189a37d3fc0dd410cf3df19e4b77bbff65ec104c19b2fa6eab7025e428e139f"
+checksum = "0b4ba42bd1221803e965054767b1899f2db9a12c89969965c6cb3a02af7014eb"
 dependencies = [
  "cc",
  "cpp_demangle",
@@ -1721,9 +1783,9 @@ dependencies = [
 
 [[package]]
 name = "symbolic-minidump"
-version = "8.0.3"
+version = "8.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "20f0fff174b6749bdcf0787d2832b35c4e5ac175a0f8d8fead3bf8822133940f"
+checksum = "f7cc4b27a557b1667873c1c15c1abd51afb8946a18ec488b101360038aec56c3"
 dependencies = [
  "cc",
  "lazy_static",
@@ -2178,6 +2240,12 @@ checksum = "0120db82e8a1e0b9fb3345a539c478767c0048d842860994d96113d5b667bd69"
 dependencies = [
  "winapi",
 ]
+
+[[package]]
+name = "xml-rs"
+version = "0.8.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b07db065a5cf61a7e4ba64f29e67db906fb1787316516c4e6e5ff0fea1efcd8a"
 
 [[package]]
 name = "zip"
